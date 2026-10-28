@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<select id="designation">
+    <option value="peon">Peon</option>
+    <option value="js-devolper">Js devolper</option>
+    <option value="project-manager">Project manager</option>
+
+</select>
+<button onclick=calculateTax()>Button</button>
+<script>
+let designation = document.querySelector("#designation").value;
+let taxamount;
+
+function calculateTax() {
+    salary = Number(prompt("Enter the salary"));
+    designation = document.querySelector("#designation").value;
+
+    if (salary <= 1000 || salary >= 200000) {
+        alert("Please enter a valid amount");
+    } else {
+        
+        if (designation === "peon") {
+            taxamount = salary * 2.5 / 100;
+        } else if (designation === "js-devolper") {
+            taxamount = salary * 4.5 / 100;
+        } else if (designation === "project-manager") {
+            taxamount = salary * 7.5 / 100;
+        }
+        console.log(taxamount);
+        
+        let newdiv=document.createElement("div");
+        newdiv.textContent=` your role  is ${designation}  your remaning amount is ${salary-taxamount}  and the tax amount is ${taxamount } and the total salery is ${salary}`;
+        document.body.appendChild(newdiv)
+     
+    }
+}
+function calculateTaxs(salary,designation){
+    let taxamount;
+    if (salary <= 1000 || salary >= 200000) {
+        alert("Please enter a valid amount");
+        return;
+    } else {
+        if (designation === "peon") {
+            taxamount = salary * 2.5 / 100;
+        } else if (designation === "js-devolper") {
+            taxamount = salary * 4.5 / 100;
+        } else if (designation === "project-manager") {
+            taxamount = salary * 7.5 / 100;
+        }else{
+            alert("Please Enter a valid Designation")
+        return;
+        }
+        console.log(taxamount);
+        let newdiv=document.createElement("div");
+        newdiv.textContent=` your role  is ${designation}  your remaning amount is ${salary-taxamount}  and the tax amount is ${taxamount } and the total salery is ${salary}`;
+        document.body.appendChild(newdiv)
+     
+    }}
+calculateTaxs(Number(prompt("Enter the salary")),prompt("Enter the designation"))
+</script>
+
+</body>
+</html>
